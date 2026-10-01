@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie - Learning Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>EduGenie</h1>
+        <p class="subtitle">Google Gemini Powered Learning Assistant</p>
+
+        <section>
+            <h2>Ask a Question</h2>
+
+            <form action="/qa" method="post">
+                <textarea
+                    name="question"
+                    placeholder="Ask your question..."
+                    required
+                ></textarea>
+
+                <button type="submit">Get Answer</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>Explain a Topic</h2>
+
+            <form action="/explain" method="post">
+                <input
+                    type="text"
+                    name="topic"
+                    placeholder="Enter a topic..."
+                    required
+                >
+
+                <button type="submit">Explain</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>Generate a Quiz</h2>
+
+            <form action="/quiz" method="post">
+                <input
+                    type="text"
+                    name="topic"
+                    placeholder="Enter a topic..."
+                    required
+                >
+
+                <button type="submit">Generate Quiz</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>Summarize Text</h2>
+
+            <form action="/summarize" method="post">
+                <textarea
+                    name="text"
+                    placeholder="Paste your text here..."
+                    required
+                ></textarea>
+
+                <button type="submit">Summarize</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>Learning Path</h2>
+
+            <form action="/learn/recommendations" method="post">
+                <input
+                    type="text"
+                    name="topic"
+                    placeholder="What do you want to learn?"
+                    required
+                >
+
+                <button type="submit">Create Learning Path</button>
+            </form>
+        </section>
+
+
+        {% if result %}
+        <section class="result">
+            <h2>Result</h2>
+            <div class="result-content">{{ result }}</div>
+        </section>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
